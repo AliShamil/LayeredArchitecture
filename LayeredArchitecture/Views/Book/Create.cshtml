@@ -1,0 +1,21 @@
+﻿@model Book
+
+<h1>Add New Book</h1>
+
+<form asp-controller="Book" asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" required>
+    </div>
+    <div class="form-group">
+        <label for="Author">Author</label>
+        <input type="text" class="form-control" id="Author" name="Author" required>
+    </div>
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input type="number" class="form-control" id="Year" name="Year" required>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

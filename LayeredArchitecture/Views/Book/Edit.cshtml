@@ -1,0 +1,21 @@
+﻿@model Book
+
+<h1>Edit Book</h1>
+
+<form asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required>
+    </div>
+    <div class="form-group">
+        <label for="Author">Author</label>
+        <input type="text" class="form-control" id="Author" name="Author" value="@Model.Author" required>
+    </div>
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input type="number" class="form-control" id="Year" name="Year" value="@Model.Year" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

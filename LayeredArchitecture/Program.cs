@@ -1,5 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+using LayeredArchitecture.Business.Interfaces;
+using LayeredArchitecture.Business.Services;
+using LayeredArchitecture.Data;
+using LayeredArchitecture.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
